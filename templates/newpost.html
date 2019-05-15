@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 align="center">Add a Blog entry</h2>
+
+
+<form action="/blog" method='post'>
+    <label>
+        Title for your new Blog:<br>
+        <input type="text" name='blog' />
+    </label>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+    <br>
+    <br>
+    <label>
+        Your new Blog:<br>
+        <textarea name="body" rows="8" cols="60"></textarea>
+    </label>
+    {% with Messages = get_flashed_messages() %}
+        {% if Messages %}
+        <ul class=flashes>
+        {% for Message in Messages %}
+        <li class="{{ category }}">{{ Message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+    <br>
+    <br>
+    <input type="submit" value='Add Blog' />
+</form>
+    
+{% endblock %}

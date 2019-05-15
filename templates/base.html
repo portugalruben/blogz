@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <nav>
+            <a href="/blog">Main Blog Page</a>
+            <a href="/newpost">Add a Blog Entry</a>
+        </nav>
+        <style>
+        .hr_att {
+            display: block;
+            margin-top: 0.4em;
+            margin-bottom: 0.4em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 0.5px;
+            color: lightgray;
+          }
+        </style>
+        <style>
+            .flashes {
+                font-size: 16px;    
+                color: red;
+                }
+        </style>
+        <title>{{title}}</title>
+    </head>
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
