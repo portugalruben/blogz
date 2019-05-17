@@ -10,11 +10,11 @@
         Title for your new Blog:<br>
         <input type="text" name='blog' />
     </label>
-    {% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages(category_filter=["error_title"]) %}
         {% if messages %}
-        <ul class=flashes>
+        <ul class="error_post">
         {% for message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
+                <li class="error_post">{{ message }}</li>
         {% endfor %}
         </ul>
         {% endif %}
@@ -25,11 +25,11 @@
         Your new Blog:<br>
         <textarea name="body" rows="8" cols="60"></textarea>
     </label>
-    {% with Messages = get_flashed_messages() %}
+    {% with Messages = get_flashed_messages(category_filter=["error_body"]) %}
         {% if Messages %}
-        <ul class=flashes>
+        <ul class="error_post">
         {% for Message in Messages %}
-        <li class="{{ category }}">{{ Message }}</li>
+        <li class="error_post">{{ Message }}</li>
         {% endfor %}
         </ul>
         {% endif %}

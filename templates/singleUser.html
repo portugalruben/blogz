@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 align="left">Blog posts !</h1>
+    
+{% if blogs %}
+<ul>
+    {% for blog in blogs %}
+
+        {% if blog.owner_id == singleuser_id %}
+        <li> <a name={{blog.title}} style="font-size:20px" href="http://127.0.0.1:5000/blogposts?id={{blog.id}}">
+                <strong>{{blog.title}}</strong></a>
+            <br>
+            {{blog.body}}<br>
+            <p>Written by <a href="http://127.0.0.1:5000/singleuser?id={{blog.owner_id}}">{{blog.owner.username}}</a></p>
+            <hr class="hr_att">    
+        </li>
+        {% endif %}
+
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

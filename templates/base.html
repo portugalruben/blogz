@@ -2,8 +2,29 @@
 <html>
     <head>
         <nav>
-            <a href="/blog">Main Blog Page</a>
-            <a href="/newpost">Add a Blog Entry</a>
+            <style>
+                .log_in_out {
+                    text-align:right;
+                    white-space:nowrap;
+                }
+            </style>
+            <div>
+            <ul>
+                <a href="/index">home</a>
+                <a href="/blogposts">all posts</a>
+                <a href="/newpost">new post</a>
+            </ul>
+            </div>
+            <div>
+            <ul class="log_in_out">
+                {% if not session["username"] %}
+                <a href="/login">login</a>
+                {% endif%}
+                {% if session["username"] %}
+                <a href="/logout">logout</a>
+                {% endif %}
+            </ul>
+            </div>
         </nav>
         <style>
         .hr_att {
@@ -22,8 +43,14 @@
                 font-size: 16px;    
                 color: red;
                 }
+            .error_post {
+                font-size: 16px;    
+                color: red;
+                }
         </style>
+
         <title>{{title}}</title>
+    
     </head>
 <body>
 
